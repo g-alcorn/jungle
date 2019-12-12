@@ -1,2 +1,33 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<style type="text/css">
+  table {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0.4%;
+  }
+  th {
+    padding: 10px;
+  }
+  tr {
+    padding: 0.4%;
+    border: 1px solid;
+  }
+  td {
+    padding: 0.4%;
+    border: 1px solid;
+  }
+</style>
+
+<h3>Admin Dashboard</h3>
+<table class="admin-dashboard-table">
+  <th colspan="5" width="50%">Analytics</th>
+  <tr>
+    <td colspan="3">Total products: </td>
+    <td colspan="2"><%= @data[:product_count]%></td>
+  </tr>
+  <tr>
+    <td colspan="3">Categories: </td>
+    <td colspan="2"><%= @data[:category_count]%></td>
+  </tr>
+</table>
