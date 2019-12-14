@@ -38,6 +38,25 @@
             <li><%= link_to 'Products',  [:admin, :products] %></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <% if current_user %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="text-danger">Logout</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li> Signed in as <%= current_user.name %> </li>
+              <li> <%= link_to "Logout", '/logout', method: 'post' %> </li>
+            </ul>
+          <% else %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="text-danger">Login</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li> <%= link_to 'Login', '/login' %> </li>
+              <li> <%= link_to "Don't have an account?", '/signup' %> </li>
+            </ul>
+          <% end %>
+        </li>
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
